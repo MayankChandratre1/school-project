@@ -1,3 +1,4 @@
+//b
 import { addSchool, addStudent, addTeacher } from "../controllers/schoolAdminController.js";
 import { authenticate } from "../middlewares/authMiddleware.js";
 import { authorizeRoles } from "../middlewares/roleMiddleware.js";
