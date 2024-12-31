@@ -3,7 +3,7 @@ import { authenticate } from "../middlewares/authMiddleware.js";
 import { authorizeRoles } from "../middlewares/roleMiddleware.js";
 import express from 'express';
 import {Role} from '../enum.js';
-import { createForm } from "../controllers/formController.js";
+import { createForm, editForm, deleteForm } from "../controllers/formController.js";
 import upload from "../middlewares/multer.js";
 
 const router = express.Router();
@@ -18,6 +18,8 @@ router.post('/addTeacher',authenticate,authorizeRoles(Role.SchoolAdmin),addTeach
 router.post('/addStudent',authenticate,authorizeRoles(Role.SchoolAdmin),addStudent)
 
 router.post('/createForm',authenticate,authorizeRoles(Role.SchoolAdmin),createForm)
+router.post('/editForm/:id',authenticate,authorizeRoles(Role.SchoolAdmin),editForm)
+router.delete('/deleteForm/:id',authenticate,authorizeRoles(Role.SchoolAdmin),deleteForm)
 
 
 export default router;

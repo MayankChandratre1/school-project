@@ -32,16 +32,16 @@ export function SideNav() {
   return (
     <>
       {/* Hamburger Icon for Small Screens */}
-      <div className="bg-white md:hidden p-2 fixed top-4 left-4 z-50">
+      <div className=" md:hidden p-2 fixed top-4 left-4 z-50">
         <Button variant="ghost" onClick={toggleMenu}>
-          {isOpen ? <X /> : <MenuIcon />}
+          {isOpen ? <X /> : <MenuIcon color='#fff' />}
         </Button>
       </div>
 
       {/* Mobile Navigation */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-white shadow-lg z-40 md:hidden overflow-y-auto"
+          className="fixed inset-0 shadow-lg z-40 md:hidden overflow-y-auto"
           style={{ height: '100vh' }}
         >
           <nav className="w-64">
@@ -82,7 +82,7 @@ export function SideNav() {
       {/* Desktop Navigation */}
       <nav className="hidden md:block w-64 bg-[#023d54] text-white  shadow-lg h-screen">
         <div className="p-4">
-          <img src="/hero1.png" alt="Logo" className="w-14 h-14" />
+          <img src="/hero1.png" alt="Logo" className="w-56 h-56" />
         </div>
         <ul className="space-y-2 py-4">
           {navItems.map((item) => (

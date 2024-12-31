@@ -243,6 +243,27 @@ export const createForm = async (data:any, token: string) => {
         return {error};
     }
 }
+export const editForm = async (id:string,data:any, token: string) => {
+    try {
+        const response = await axios.post(`${API_URL}/schoolAdmin/editForm/${id}`, data, {
+            headers: {token}
+        });
+        return response.data;
+    } catch (error) {
+        return {error};
+    }
+}
+
+export const deleteForm = async (id:string, token: string) => {
+    try {
+        const response = await axios.delete(`${API_URL}/schoolAdmin/deleteForm/${id}`, {
+            headers: {token}
+        });
+        return response.data;
+    } catch (error) {
+        return {error};
+    }
+}
 
 export const getFormById = async (id:string, token: string) => {
     try {
