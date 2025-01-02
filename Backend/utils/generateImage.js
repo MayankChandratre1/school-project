@@ -2,11 +2,25 @@ import path from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { createCanvas, loadImage, registerFont } from 'canvas';
+import fetch from 'node-fetch';
+import fs from 'fs';
+import os from 'os';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+async function loadFontFromURL(url, familyName) {
+  const tempDir = os.tmpdir(); // Temporary directory for serverless functions
+  const fontPath = path.join(tempDir, `${familyName}.ttf`);
 
-// Register the font
-registerFont("https://res.cloudinary.com/dvsl1aslo/raw/upload/v1735842623/ARIAL_i6tfdd.TTF", { family: 'Arial' });
+  // Download the font and save it to the temporary directory
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch font: ${response.statusText}`);
+  }
+  const fontBuffer = await response.arrayBuffer();
+  fs.writeFileSync(fontPath, Buffer.from(fontBuffer));
+
+  // Register the font
+  registerFont(fontPath, { family: familyName });
+}
 ////
 //update
 export const generateCouponImage = async (
@@ -21,6 +35,10 @@ export const generateCouponImage = async (
   parentEmail,
 ) => {
   try {
+    await loadFontFromURL(
+      'https://res.cloudinary.com/dvsl1aslo/raw/upload/v1735842623/ARIAL_i6tfdd.TTF', // Replace with your hosted font URL
+      'Arial'
+    );
     const backgroundImage = await loadImage(
       'https://res.cloudinary.com/dvsl1aslo/image/upload/v1735839196/school_token_qvqoxg.png'
     );
