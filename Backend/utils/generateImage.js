@@ -6,7 +6,7 @@ import { createCanvas, loadImage, registerFont } from 'canvas';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Register the font
-registerFont(path.join(__dirname, '../fonts/ARIAL.TTF'), { family: 'Arial' });
+registerFont("https://res.cloudinary.com/dvsl1aslo/raw/upload/v1735842623/ARIAL_i6tfdd.TTF", { family: 'Arial' });
 ////
 //update
 export const generateCouponImage = async (
