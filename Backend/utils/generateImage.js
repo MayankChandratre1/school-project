@@ -8,6 +8,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 // Register the font
 registerFont(path.join(__dirname, '../fonts/ARIAL.TTF'), { family: 'Arial' });
 ////
+//update
 export const generateCouponImage = async (
   noOfTokens,
   student,
@@ -25,8 +26,8 @@ export const generateCouponImage = async (
     );
     const schoolLogo = await loadImage(schoolLogoURL);
 
-    const canvas = createCanvas(690, 400);
-    const ctx = canvas.getContext('2d');
+    const canvas = createCanvas(690, 400)
+    const ctx = canvas.getContext('2d')
 
     ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
     ctx.drawImage(schoolLogo, 80, 80, 80, 80);
