@@ -7,14 +7,9 @@ import connectDB from './config/db.js';
 
 // import * as AdminJSMongoose from '@adminjs/mongoose'
 
-import bcrypt from 'bcryptjs';
 import session from 'express-session';
 import bodyParser from 'body-parser'; 
 
-import User from './models/Admin.js';
-import School from './models/School.js';
-import Teacher from './models/Teacher.js';
-import Student from './models/Student.js';
 
 import authRoutes from './routes/authRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
@@ -31,7 +26,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-  origin: process.env.FRONTEND_URL, 
+  origin: "*", 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
   credentials: true, 
 };

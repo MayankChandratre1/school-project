@@ -1,9 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { School,  Users, BookOpen, LogOut, X, MenuIcon ,ClipboardIcon} from 'lucide-react';
+import { School,  Users, BookOpen, LogOut, X, MenuIcon ,ClipboardIcon, Home} from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 
 const navItems = [
+  { href: '/schoolAdmin', label: 'Home', icon: Home },
   { href: '/addschool', label: 'School', icon: School },
   // { href: '/addteacher', label: 'Add Teacher', icon: UserPlus },
   // { href: '/addstudent', label: 'Add Student', icon: UserPlus },

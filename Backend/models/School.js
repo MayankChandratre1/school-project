@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 
+
+
 const SchoolSchema = new mongoose.Schema({
     name : {type:String, required: true},
     logo : {type:String},
@@ -9,5 +11,7 @@ const SchoolSchema = new mongoose.Schema({
     createdAt : {type : Date, default : Date.now},
     createdBy: {type: mongoose.Types.ObjectId, ref: 'User'}
 });
+
+
 
 export default mongoose.model('School', SchoolSchema);

@@ -13,6 +13,7 @@ router.get('/dashboard', authenticate, authorizeRoles(Role.Student), (req, res) 
 router.post('/addStudent',authenticate,authorizeRoles(Role.SchoolAdmin),addStudent)
 router.put("/updateStudent/:id",authenticate,authorizeRoles(Role.SchoolAdmin), updateStudent)
 router.delete("/deleteStudent/:id",authenticate,authorizeRoles(Role.SchoolAdmin), deleteStudent)
+router.delete("/pointsreceived",authenticate,authorizeRoles(Role.SchoolAdmin), deleteStudent)
 
 
 
