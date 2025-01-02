@@ -13,8 +13,8 @@
         }
     ],
     "functions": {
-        "api/*.js": {
-            "includeFiles": ["fonts/*"]
+        "api/index.js": {
+            "includeFiles": "fonts/ARIAL.TTF"
         }
     }
 }
