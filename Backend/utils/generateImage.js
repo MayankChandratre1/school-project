@@ -39,7 +39,7 @@ export const generateCouponImage = async (
     ctx.drawImage(schoolLogo, 80, 80, logoWidth, logoHeight);
 
     // Set font and style for text
-    ctx.font = '20px Arial';
+    ctx.font = '20px sans-serif';
     ctx.fillStyle = 'black';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
