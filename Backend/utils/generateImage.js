@@ -22,6 +22,8 @@ export const generateCouponImage = async (
     const backgroundImage = await loadImage("https://res.cloudinary.com/dvsl1aslo/image/upload/v1735839196/school_token_qvqoxg.png");
     
     // Load the school logo
+    
+    
     const schoolLogo = await loadImage(schoolLogoURL);
     console.log("loaded");
     
@@ -29,6 +31,7 @@ export const generateCouponImage = async (
     // Create a canvas
     const canvas = createCanvas(690, 400); // Adjusted height for additional text
     const ctx = canvas.getContext('2d');
+    console.log(ctx.font);
     
     // Draw the background image
     ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
@@ -39,7 +42,7 @@ export const generateCouponImage = async (
     ctx.drawImage(schoolLogo, 80, 80, logoWidth, logoHeight);
 
     // Set font and style for text
-    ctx.font = '20px sans-serif';
+    
     ctx.fillStyle = 'black';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
@@ -76,3 +79,4 @@ async function testLoadImage() {
     }
   }
   
+  generateCouponImage()
